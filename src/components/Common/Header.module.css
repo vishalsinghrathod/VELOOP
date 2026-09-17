@@ -68,10 +68,10 @@
 .desktopNav {
   display: none;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 880px) {
   .desktopNav {
     display: flex;
   }
@@ -103,7 +103,7 @@
 .rightActions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .iconBtn {
@@ -134,4 +134,68 @@
   border-radius: 50%;
   box-shadow: 0 0 8px rgba(239, 68, 68, 0.8);
   border: 2px solid #161827;
+}
+
+/* User Profile Chip on Desktop */
+.userProfileChip {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px 12px 4px 5px;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+@media (min-width: 680px) {
+  .userProfileChip {
+    display: flex;
+  }
+}
+
+.userProfileChip:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+.chipActive {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.chipAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #ffffff;
+  border: 1.5px solid #fbbf24;
+}
+
+.chipInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.chipName {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.chipBadge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--gold-light);
 }

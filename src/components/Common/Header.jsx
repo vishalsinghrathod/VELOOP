@@ -1,23 +1,26 @@
 import React from 'react';
-import { Menu, Bell, Info, Sparkles, LayoutDashboard, Layers, Clock } from 'lucide-react';
+import { Menu, Bell, Info, Sparkles, LayoutDashboard, Layers, Clock, User } from 'lucide-react';
 import styles from './Header.module.css';
 
 export default function Header({ 
   activeView = 'dashboard', 
   onSelectView, 
   onOpenNotifications, 
-  onOpenInfo 
+  onOpenInfo,
+  currentLevel = 5 
 }) {
+  const levelStr = String(currentLevel).padStart(2, '0');
+
   return (
     <header className={styles.header}>
       <div className={styles.headerLeft}>
         <button 
           className={styles.iconBtnMobile} 
-          onClick={() => onOpenInfo?.('level')}
-          aria-label="Navigation Menu"
+          onClick={() => onSelectView?.('profile')}
+          aria-label="Profile Menu"
           id="btn-header-menu"
         >
-          <Menu size={22} color="#cbd5e1" />
+          <User size={20} color="#cbd5e1" />
         </button>
 
         <div className={styles.brandTitle} onClick={() => onSelectView?.('dashboard')}>
@@ -31,6 +34,7 @@ export default function Header({
         <button 
           className={`${styles.navLink} ${activeView === 'dashboard' ? styles.navLinkActive : ''}`}
           onClick={() => onSelectView?.('dashboard')}
+          id="nav-desktop-dashboard"
         >
           <LayoutDashboard size={15} />
           <span>Dashboard</span>
@@ -39,6 +43,7 @@ export default function Header({
         <button 
           className={`${styles.navLink} ${activeView === 'earn' ? styles.navLinkActive : ''}`}
           onClick={() => onSelectView?.('earn')}
+          id="nav-desktop-earn"
         >
           <Layers size={15} />
           <span>Earn & Level Up</span>
@@ -47,6 +52,7 @@ export default function Header({
         <button 
           className={`${styles.navLink} ${activeView === 'game' ? styles.navLinkActive : ''}`}
           onClick={() => onSelectView?.('game')}
+          id="nav-desktop-game"
         >
           <Sparkles size={15} />
           <span>XP Catcher Arcade</span>
@@ -55,9 +61,19 @@ export default function Header({
         <button 
           className={`${styles.navLink} ${activeView === 'activity' ? styles.navLinkActive : ''}`}
           onClick={() => onSelectView?.('activity')}
+          id="nav-desktop-activity"
         >
           <Clock size={15} />
           <span>Activity Log</span>
+        </button>
+
+        <button 
+          className={`${styles.navLink} ${activeView === 'profile' ? styles.navLinkActive : ''}`}
+          onClick={() => onSelectView?.('profile')}
+          id="nav-desktop-profile"
+        >
+          <User size={15} />
+          <span>My Profile</span>
         </button>
       </nav>
 
@@ -80,6 +96,20 @@ export default function Header({
         >
           <Bell size={20} color="#cbd5e1" />
           <span className={styles.badgeDot}></span>
+        </button>
+
+        {/* Desktop User Profile Chip */}
+        <button 
+          className={`${styles.userProfileChip} ${activeView === 'profile' ? styles.chipActive : ''}`}
+          onClick={() => onSelectView?.('profile')}
+          title="View My Profile"
+          id="btn-header-profile-chip"
+        >
+          <div className={styles.chipAvatar}>VL</div>
+          <div className={styles.chipInfo}>
+            <span className={styles.chipName}>VeLooper</span>
+            <span className={styles.chipBadge}>LVL {levelStr}</span>
+          </div>
         </button>
       </div>
     </header>

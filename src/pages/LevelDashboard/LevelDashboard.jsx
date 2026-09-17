@@ -65,6 +65,7 @@ export default function LevelDashboard() {
         onOpenMenu={() => setActiveInfoModal('level')}
         onOpenNotifications={() => setActiveView('activity')}
         onOpenInfo={(type) => setActiveInfoModal(type)}
+        currentLevel={user.currentLevel}
       />
 
       <main className={styles.mainWrapper}>
