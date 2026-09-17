@@ -137,14 +137,24 @@ export default function ProfileView({ user, onBack, onResetData }) {
       </div>
 
       {/* Account Actions */}
-      <div className={styles.dangerZone}>
+      <div className={styles.accountFooter}>
+        <div className={styles.footerLinks}>
+          <a href="#help" onClick={(e) => { e.preventDefault(); alert('VELOOP Support: support@veloop.io'); }}>Help & Support</a>
+          <span className={styles.linkDot}>•</span>
+          <a href="#terms" onClick={(e) => { e.preventDefault(); alert('Terms of Service: All rights reserved © VELOOP Rewards.'); }}>Terms & Privacy</a>
+        </div>
+
         <button 
-          className={styles.resetBtn}
-          onClick={onResetData}
-          title="Reset your session back to default values"
+          className={styles.logoutBtn}
+          onClick={() => {
+            if (window.confirm('Are you sure you want to sign out?')) {
+              onResetData?.();
+              onBack?.();
+            }
+          }}
+          title="Sign Out"
         >
-          <RotateCcw size={14} />
-          <span>Reset Demo Progress to Level 05 Default</span>
+          <span>Sign Out</span>
         </button>
       </div>
     </div>
