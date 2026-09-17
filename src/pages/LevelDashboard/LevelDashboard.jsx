@@ -12,6 +12,7 @@ import EarnAndLevelUpView from '../../components/EarnMoreXP/EarnAndLevelUpView';
 import XPActivityView from '../../components/XPActivity/XPActivityView';
 import LevelUpCelebration from '../../components/LevelUpModal/LevelUpCelebration';
 import InfoModal from '../../components/Common/InfoModal';
+import ProfileView from '../../components/Profile/ProfileView';
 
 import { useUserData } from '../../hooks/useUserData';
 import { EARNING_ACTIVITIES } from '../../data/earningActivitiesData';
@@ -26,10 +27,11 @@ export default function LevelDashboard() {
     showLevelUpModal,
     setShowLevelUpModal,
     activeInfoModal,
-    setActiveInfoModal
+    setActiveInfoModal,
+    resetToDefault
   } = useUserData();
 
-  // Active view: 'dashboard' | 'game' | 'earn' | 'activity'
+  // Active view: 'dashboard' | 'game' | 'earn' | 'activity' | 'profile'
   const [activeView, setActiveView] = useState('dashboard');
   const [activeTab, setActiveTab] = useState('rewards');
 
@@ -43,7 +45,7 @@ export default function LevelDashboard() {
     } else if (tabId === 'wallet') {
       setActiveView('activity');
     } else if (tabId === 'profile') {
-      setActiveInfoModal('level');
+      setActiveView('profile');
     }
   };
 
@@ -200,9 +202,26 @@ export default function LevelDashboard() {
           <div className={styles.subViewContainer}>
             <XPActivityView 
               history={history}
-              onBack={() => setActiveView('dashboard')}
+              onBack={() => { setActiveView('dashboard'); setActiveTab('rewards'); }}
               xpToday={user.xpEarnedToday}
               vesToday={user.vesEarnedToday}
+            />
+          </div>
+        )}
+
+        {/* VIEW 5: USER PROFILE VIEW */}
+        {activeView === 'profile' && (
+          <div className={styles.subViewContainer}>
+            <ProfileView 
+              user={user}
+              onBack={() => { setActiveView('dashboard'); setActiveTab('rewards'); }}
+              onResetData={() => {
+                if (window.confirm('Reset demo progress back to Level 05 defaults?')) {
+                  resetToDefault();
+                  setActiveView('dashboard');
+                  setActiveTab('rewards');
+                }
+              }}
             />
           </div>
         )}
