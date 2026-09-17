@@ -1,0 +1,278 @@
+.loginContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: radial-gradient(circle at 50% 20%, #1f2545 0%, #161827 60%, #0c0e18 100%);
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 440px;
+  background: rgba(26, 30, 52, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xl);
+  padding: 32px 28px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(245, 158, 11, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  animation: cardFadeIn 0.3s ease-out;
+}
+
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.brandGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.brandIconHexagon {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #2b2210 0%, #181924 100%);
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+}
+
+.brandLogoText {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fbbf24;
+  font-family: var(--font-heading);
+}
+
+.brandTitle {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.goldBrand {
+  color: var(--gold-light);
+}
+
+.rewardsTag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--purple-light);
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 2px 7px;
+  border-radius: 6px;
+  letter-spacing: 0.1em;
+}
+
+.welcomeHeading {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.welcomeSubtitle {
+  font-size: 0.8rem;
+  color: var(--silver-muted);
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: 24px;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inputLabel {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--silver);
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 17, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  transition: border-color var(--transition-fast);
+}
+
+.inputWrapper:focus-within {
+  border-color: var(--gold-light);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+}
+
+.inputField {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.86rem;
+  color: #ffffff;
+  width: 100%;
+  font-family: inherit;
+}
+
+.submitBtn {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #121422;
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 12px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+  margin-top: 6px;
+  transition: all var(--transition-fast);
+}
+
+.submitBtn:hover {
+  background: linear-gradient(135deg, #fde047 0%, #fbbf24 100%);
+  transform: translateY(-1px);
+}
+
+/* Divider */
+.dividerRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dividerText {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--silver-dark);
+  letter-spacing: 0.1em;
+}
+
+/* Demo Quick Buttons */
+.demoButtonsGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.demoBtnLevel5 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.demoBtnLevel5:hover {
+  background: rgba(245, 158, 11, 0.16);
+  border-color: var(--gold-light);
+  transform: translateX(2px);
+}
+
+.demoBtnIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(245, 158, 11, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.demoBtnLevel1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.demoBtnLevel1:hover {
+  background: rgba(16, 185, 129, 0.16);
+  border-color: #34d399;
+  transform: translateX(2px);
+}
+
+.demoBtnIconGreen {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(16, 185, 129, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.demoBtnTexts {
+  display: flex;
+  flex-direction: column;
+}
+
+.demoBtnTitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.demoBtnSub {
+  font-size: 0.7rem;
+  color: var(--silver-muted);
+  margin-top: 1px;
+}
+
+/* Trust footer */
+.trustFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: var(--silver-dark);
+}

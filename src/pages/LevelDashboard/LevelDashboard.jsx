@@ -13,6 +13,7 @@ import XPActivityView from '../../components/XPActivity/XPActivityView';
 import LevelUpCelebration from '../../components/LevelUpModal/LevelUpCelebration';
 import InfoModal from '../../components/Common/InfoModal';
 import ProfileView from '../../components/Profile/ProfileView';
+import LoginView from '../../components/Auth/LoginView';
 
 import { useUserData } from '../../hooks/useUserData';
 import { EARNING_ACTIVITIES } from '../../data/earningActivitiesData';
@@ -20,6 +21,9 @@ import styles from './LevelDashboard.module.css';
 
 export default function LevelDashboard() {
   const {
+    isLoggedIn,
+    login,
+    logout,
     user,
     history,
     addXP,
@@ -57,6 +61,10 @@ export default function LevelDashboard() {
     }
   };
 
+  if (!isLoggedIn) {
+    return <LoginView onLogin={login} />;
+  }
+
   return (
     <div className={styles.appContainer}>
       <Header 
@@ -65,6 +73,7 @@ export default function LevelDashboard() {
         onOpenMenu={() => setActiveInfoModal('level')}
         onOpenNotifications={() => setActiveView('activity')}
         onOpenInfo={(type) => setActiveInfoModal(type)}
+        onLogout={logout}
         currentLevel={user.currentLevel}
       />
 
@@ -216,12 +225,13 @@ export default function LevelDashboard() {
             <ProfileView 
               user={user}
               onBack={() => { setActiveView('dashboard'); setActiveTab('rewards'); }}
+              onLogout={() => {
+                logout();
+                setActiveView('dashboard');
+                setActiveTab('rewards');
+              }}
               onResetData={() => {
-                if (window.confirm('Reset demo progress back to Level 05 defaults?')) {
-                  resetToDefault();
-                  setActiveView('dashboard');
-                  setActiveTab('rewards');
-                }
+                resetToDefault();
               }}
             />
           </div>

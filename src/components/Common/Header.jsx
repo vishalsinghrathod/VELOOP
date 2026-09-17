@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Bell, Info, Sparkles, LayoutDashboard, Layers, Clock, User } from 'lucide-react';
+import { Menu, Bell, Info, Sparkles, LayoutDashboard, Layers, Clock, User, LogOut } from 'lucide-react';
 import styles from './Header.module.css';
 
 export default function Header({ 
@@ -7,6 +7,7 @@ export default function Header({
   onSelectView, 
   onOpenNotifications, 
   onOpenInfo,
+  onLogout,
   currentLevel = 5 
 }) {
   const levelStr = String(currentLevel).padStart(2, '0');
@@ -110,6 +111,17 @@ export default function Header({
             <span className={styles.chipName}>VeLooper</span>
             <span className={styles.chipBadge}>LVL {levelStr}</span>
           </div>
+        </button>
+
+        {/* Direct Sign Out Button */}
+        <button 
+          className={styles.iconBtnLogout}
+          onClick={onLogout}
+          aria-label="Sign Out"
+          id="btn-header-logout"
+          title="Sign Out"
+        >
+          <LogOut size={16} color="#fca5a5" />
         </button>
       </div>
     </header>

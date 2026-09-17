@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ArrowLeft, User, Award, ShieldCheck, Zap, Flame, Trophy, Coins, Settings, RotateCcw, ChevronRight, CheckCircle2 } from 'lucide-react';
 import styles from './Profile.module.css';
 
-export default function ProfileView({ user, onBack, onResetData }) {
+export default function ProfileView({ user, onBack, onLogout, onResetData }) {
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [animationsEnabled, setAnimationsEnabled] = useState(true);
 
@@ -146,13 +146,9 @@ export default function ProfileView({ user, onBack, onResetData }) {
 
         <button 
           className={styles.logoutBtn}
-          onClick={() => {
-            if (window.confirm('Are you sure you want to sign out?')) {
-              onResetData?.();
-              onBack?.();
-            }
-          }}
+          onClick={() => onLogout?.()}
           title="Sign Out"
+          id="btn-profile-logout"
         >
           <span>Sign Out</span>
         </button>

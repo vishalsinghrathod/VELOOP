@@ -1,13 +1,23 @@
 import { useState, useEffect } from 'react';
-import { INITIAL_USER_DATA } from '../data/userData';
+import { INITIAL_USER_DATA, NEW_USER_DATA } from '../data/userData';
 import { INITIAL_XP_HISTORY } from '../data/xpHistoryData';
 import { LEVEL_DATA } from '../data/levelData';
 import confetti from 'canvas-confetti';
 
 const STORAGE_KEY_USER = 'veloop_user_state_v1';
 const STORAGE_KEY_HISTORY = 'veloop_history_state_v1';
+const STORAGE_KEY_AUTH = 'veloop_is_logged_in_v1';
 
 export function useUserData() {
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY_AUTH);
+      return saved === 'true';
+    } catch {
+      return false;
+    }
+  });
+
   const [user, setUser] = useState(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY_USER);
@@ -45,6 +55,39 @@ export function useUserData() {
       // ignore
     }
   }, [history]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY_AUTH, String(isLoggedIn));
+    } catch {
+      // ignore
+    }
+  }, [isLoggedIn]);
+
+  const login = (mode = 'existing', customEmail = '', customName = '') => {
+    if (mode === 'new') {
+      const newUser = {
+        ...NEW_USER_DATA,
+        name: customName.trim() || 'New Looper',
+        email: customEmail.trim() || 'newuser@veloop.io'
+      };
+      setUser(newUser);
+      setHistory([]);
+    } else {
+      setUser(INITIAL_USER_DATA);
+      setHistory(INITIAL_XP_HISTORY);
+    }
+    setIsLoggedIn(true);
+  };
+
+  const logout = () => {
+    setIsLoggedIn(false);
+    try {
+      localStorage.setItem(STORAGE_KEY_AUTH, 'false');
+    } catch {
+      // ignore
+    }
+  };
 
   const addXP = (xpAmount, veAmount = 0, title = 'Reward Claimed', type = 'task') => {
     setUser(prev => {
@@ -140,6 +183,9 @@ export function useUserData() {
   };
 
   return {
+    isLoggedIn,
+    login,
+    logout,
     user,
     history,
     addXP,
