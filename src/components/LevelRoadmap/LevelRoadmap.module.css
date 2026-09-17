@@ -1,0 +1,295 @@
+.roadmapSection {
+  margin-bottom: 28px;
+}
+
+.headerRow {
+  margin-bottom: 18px;
+}
+
+.sectionTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin-bottom: 3px;
+}
+
+.sectionSubtitle {
+  font-size: 0.78rem;
+  color: var(--silver-muted);
+}
+
+.timelineList {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 20px;
+}
+
+.timelineNode {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 20px;
+}
+
+.timelineNode:last-child {
+  padding-bottom: 0;
+}
+
+/* Vertical connector line */
+.connectorLine {
+  position: absolute;
+  left: -9px;
+  top: 26px;
+  bottom: -6px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.timelineNode:last-child .connectorLine {
+  display: none;
+}
+
+.nodeCompleted .connectorLine {
+  background: #10b981;
+}
+
+.nodeCurrent .connectorLine {
+  background: linear-gradient(180deg, #f59e0b 0%, rgba(255, 255, 255, 0.1) 100%);
+}
+
+/* Markers */
+.markerWrapper {
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.markerCompleted {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #10b981;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+}
+
+.markerCurrent {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.6);
+  position: relative;
+}
+
+.currentPing {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid #fbbf24;
+  border-radius: 50%;
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.markerNext {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #201a38;
+  border: 2px solid #8b5cf6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
+}
+
+.markerLocked {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #161828;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card */
+.levelCard {
+  flex: 1;
+  background: rgba(26, 30, 52, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.nodeCurrent .levelCard {
+  background: linear-gradient(150deg, rgba(38, 32, 22, 0.8) 0%, rgba(26, 30, 52, 0.9) 100%);
+  border-color: rgba(245, 158, 11, 0.35);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.1);
+}
+
+.nodeNext .levelCard {
+  border-color: rgba(139, 92, 246, 0.25);
+}
+
+.levelCard:hover {
+  background: rgba(35, 41, 72, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.levelNameCol {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.tagRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.levelNumberTag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--silver-muted);
+  letter-spacing: 0.06em;
+}
+
+.youAreHereBadge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #121422;
+  background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 100%);
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+
+.nextGoalBadge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(139, 92, 246, 0.35);
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.completedBadge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #34d399;
+}
+
+.lockedBadge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--silver-dark);
+}
+
+.levelTitle {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rewardSummaryBadge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.expandChevron {
+  color: var(--silver-muted);
+  padding: 2px;
+}
+
+/* Expanded details */
+.expandedDetails {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.detailsRow {
+  margin-bottom: 8px;
+}
+
+.reqXpLabel {
+  font-size: 0.78rem;
+  color: var(--silver);
+}
+
+.reqXpLabel strong {
+  color: #ffffff;
+}
+
+.perksBox {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.perksHeader {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--silver-muted);
+}
+
+.perksList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.perkItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  color: #e2e8f0;
+}

@@ -1,0 +1,112 @@
+.sectionContainer {
+  margin-bottom: 24px;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.titleColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.subtitle {
+  font-size: 0.78rem;
+  color: var(--silver-muted);
+}
+
+.hubLinkBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.hubLinkBtn:hover {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: var(--gold-light);
+  transform: translateX(2px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.gridItem {
+  background: rgba(26, 30, 52, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 16px 8px 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.gridItem:hover {
+  background: rgba(35, 41, 70, 0.95);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.iconCircle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  margin-bottom: 8px;
+  transition: transform var(--transition-fast);
+}
+
+.gridItem:hover .iconCircle {
+  transform: scale(1.08);
+}
+
+.itemTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.rewardPill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  background: rgba(245, 158, 11, 0.12);
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
