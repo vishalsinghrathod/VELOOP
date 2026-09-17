@@ -223,8 +223,8 @@ The top control bar provides an instant selector to test all required UX states:
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/your-username/veloop-rewards-dashboard.git
-cd veloop-rewards-dashboard
+git clone https://github.com/vishalsinghrathod/VELOOP.git
+cd VELOOP
 
 # 2. Install dependencies
 npm install
@@ -249,7 +249,15 @@ npm run preview
 
 ---
 
-## 16. Author
+## 16. GitHub Repository
 
-- **Developed for**: VELOOP Rewards Frontend Task Assignment (Task 16)
+- **Repository**: [https://github.com/vishalsinghrathod/VELOOP](https://github.com/vishalsinghrathod/VELOOP)
+
+---
+
+## 17. Author
+
+- **Author**: Vishal Singh Rathod
+- **GitHub**: [@vishalsinghrathod](https://github.com/vishalsinghrathod)
+- **Project**: VELOOP Rewards Frontend Task Assignment (Task 16)
 - **Status**: Complete & Production-Ready
