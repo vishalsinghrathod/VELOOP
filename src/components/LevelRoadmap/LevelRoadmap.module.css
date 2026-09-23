@@ -188,39 +188,61 @@
 }
 
 .youAreHereBadge {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 800;
   color: #121422;
-  background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 100%);
-  padding: 2px 8px;
-  border-radius: 4px;
-  letter-spacing: 0.04em;
+  background: linear-gradient(135deg, #fde047 0%, #fbbf24 50%, #f59e0b 100%);
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.08em;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.45);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .nextGoalBadge {
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: #ffffff;
-  background: rgba(139, 92, 246, 0.35);
-  border: 1px solid rgba(139, 92, 246, 0.5);
-  padding: 2px 7px;
-  border-radius: 4px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #e9d5ff;
+  background: rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.55);
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.06em;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .completedBadge {
-  font-size: 0.65rem;
-  font-weight: 600;
+  font-size: 0.62rem;
+  font-weight: 700;
   color: #34d399;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
 }
 
 .lockedBadge {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 600;
   color: var(--silver-dark);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.04em;
 }
 
 .levelTitle {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #ffffff;
 }
@@ -235,11 +257,12 @@
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--gold-light);
-  background: rgba(245, 158, 11, 0.12);
-  border: 1px solid rgba(245, 158, 11, 0.25);
-  padding: 3px 8px;
-  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.08) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
   white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .expandChevron {

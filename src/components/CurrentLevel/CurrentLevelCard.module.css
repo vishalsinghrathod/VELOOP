@@ -37,50 +37,51 @@
 }
 
 .hexagonBadge {
-  width: 78px;
-  height: 72px;
-  background: linear-gradient(145deg, #2b2210 0%, #1a1b26 60%, #2f2512 100%);
+  width: 82px;
+  height: 76px;
+  background: linear-gradient(145deg, #382c14 0%, #151829 55%, #3d2f16 100%);
   clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid #f59e0b;
-  box-shadow: inset 0 0 14px rgba(245, 158, 11, 0.5), 0 0 18px rgba(245, 158, 11, 0.35);
+  border: 2px solid #fbbf24;
+  box-shadow: inset 0 0 18px rgba(245, 158, 11, 0.65), 0 0 24px rgba(245, 158, 11, 0.45);
   position: relative;
   z-index: 2;
-  transition: transform var(--transition-normal);
+  transition: all var(--transition-normal);
 }
 
 .hexagonBadge:hover {
-  transform: scale(1.04) rotate(1deg);
+  transform: scale(1.06) rotate(1deg);
+  box-shadow: inset 0 0 22px rgba(245, 158, 11, 0.8), 0 0 32px rgba(245, 158, 11, 0.6);
 }
 
 .badgeLabel {
   font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-weight: 800;
+  letter-spacing: 0.16em;
   color: #fbbf24;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-  margin-bottom: -2px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+  margin-bottom: -3px;
 }
 
 .badgeNumber {
-  font-size: 1.45rem;
+  font-size: 1.55rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   color: #ffffff;
-  text-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.7);
   font-family: var(--font-heading);
 }
 
 .badgeGlow {
   position: absolute;
-  width: 90px;
-  height: 90px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.3) 0%, rgba(245, 158, 11, 0) 70%);
+  width: 104px;
+  height: 104px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.35) 0%, rgba(245, 158, 11, 0) 70%);
   border-radius: 50%;
-  animation: pulseGlow 3s infinite;
+  animation: ringPulse 3s infinite ease-in-out;
   pointer-events: none;
 }
 

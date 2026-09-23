@@ -15,6 +15,18 @@
   padding: 24px 20px 100px 20px;
 }
 
+@media (max-width: 768px) {
+  .mainWrapper {
+    padding: 16px 14px 110px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainWrapper {
+    padding: 14px 10px 120px 10px;
+  }
+}
+
 /* Dashboard Layout */
 .dashboardLayout {
   display: flex;
@@ -252,16 +264,30 @@
   width: 100%;
 }
 
-/* Sub-views Container (Game, Earn Hub, Activity) */
+/* Sub-views Container (Game, Earn Hub, Activity, Profile) */
 .subViewContainer {
-  max-width: 480px;
+  width: 100%;
+  max-width: 1060px;
   margin: 0 auto;
-  background: rgba(22, 24, 39, 0.6);
+  background: rgba(22, 25, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-xl);
-  padding: 24px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  padding: 28px;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.5);
   animation: fadeIn 0.25s ease-out;
+}
+
+.gameSubView {
+  max-width: 500px;
+}
+
+@media (max-width: 768px) {
+  .subViewContainer {
+    padding: 20px 16px;
+    border-radius: var(--radius-lg);
+  }
 }
 
 @media (max-width: 520px) {

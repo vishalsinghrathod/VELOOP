@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../../components/Common/Header';
 import BottomNav from '../../components/Common/BottomNav';
 import LevelHero from '../../components/LevelHero/LevelHero';
@@ -39,6 +39,11 @@ export default function LevelDashboard() {
   const [activeView, setActiveView] = useState('dashboard');
   const [activeTab, setActiveTab] = useState('rewards');
 
+  // Scroll to top whenever active view changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [activeView]);
+
   // Navigation handlers
   const handleNavTab = (tabId) => {
     setActiveTab(tabId);
@@ -73,7 +78,6 @@ export default function LevelDashboard() {
         onOpenMenu={() => setActiveInfoModal('level')}
         onOpenNotifications={() => setActiveView('activity')}
         onOpenInfo={(type) => setActiveInfoModal(type)}
-        onLogout={logout}
         currentLevel={user.currentLevel}
       />
 
@@ -184,7 +188,7 @@ export default function LevelDashboard() {
 
         {/* VIEW 2: PLAYABLE MINI-GAME ("XP CATCHER") */}
         {activeView === 'game' && (
-          <div className={styles.subViewContainer}>
+          <div className={`${styles.subViewContainer} ${styles.gameSubView}`}>
             <GameContainer 
               user={user}
               onRecordGameResult={recordGameResult}

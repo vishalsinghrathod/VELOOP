@@ -102,6 +102,14 @@
   margin-bottom: 24px;
 }
 
+@media (min-width: 720px) {
+  .feedList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
 .feedItem {
   background: rgba(26, 30, 52, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.07);
