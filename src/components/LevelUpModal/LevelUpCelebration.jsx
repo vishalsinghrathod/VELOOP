@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, Check, CheckCircle2 } from 'lucide-react';
+import LevelBadgeGraphic from '../CurrentLevel/LevelBadgeGraphic';
 import styles from './LevelUpModal.module.css';
 
 export default function LevelUpCelebration({ 
@@ -29,13 +30,15 @@ export default function LevelUpCelebration({
         <h2 className={styles.mainTitle}>LEVEL UP!</h2>
         <p className={styles.subtitle}>You've reached</p>
 
-        {/* Giant Glowing Level Hexagon Badge */}
+        {/* Giant Glowing Level 3D Metallic Badge */}
         <div className={styles.badgeWrapper}>
-          <div className={styles.hexagonBadge}>
-            <span className={styles.badgeLabel}>LEVEL</span>
-            <span className={styles.badgeNumber}>{levelStr}</span>
-          </div>
-          <div className={styles.outerRays}></div>
+          <LevelBadgeGraphic 
+            level={levelNumber} 
+            size={130} 
+            animated={true} 
+            showTierBanner={true} 
+            glow={true}
+          />
         </div>
 
         {/* Reward Cards: VEs and Gems */}

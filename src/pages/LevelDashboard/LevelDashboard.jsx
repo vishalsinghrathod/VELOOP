@@ -88,11 +88,17 @@ export default function LevelDashboard() {
             {/* Desktop Top Row: Left Hero & Level Card, Right Next Reward */}
             <div className={styles.topSectionGrid}>
               <div className={styles.heroColumn}>
-                <LevelHero name={user.name} />
+                <LevelHero name={user.name} user={user} />
                 <CurrentLevelCard 
                   user={user} 
                   onOpenInfo={(type) => setActiveInfoModal(type)}
                   onCelebrateClick={() => setShowLevelUpModal(true)}
+                  onBoostXP={() => setActiveView('earn')}
+                  onPlayGame={() => setActiveView('game')}
+                  onViewRoadmap={() => {
+                    const el = document.getElementById('section-level-roadmap');
+                    el?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 />
               </div>
 
